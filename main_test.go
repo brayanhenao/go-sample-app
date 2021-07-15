@@ -1,22 +1,18 @@
-// Golang REST API unit testing program
 package main
 
 import (
-	"testing"
-	"net/http"
-	"net/http/httptest"
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"net/http"
+	"net/http/httptest"
+	"testing"
 )
 
 func TestPostMethod(t *testing.T) {
-	// Switch to test mode so you don't get such noisy output
 	gin.SetMode(gin.TestMode)
 
-	// Setup your router, just like you did in your main function, and
-	// register your routes
 	r := gin.Default()
-	r.POST("/", PostMethod)
+	r.POST("/", SamplePost)
 
 	// Create the mock request you'd like to test. Make sure the second argument
 	// here is the same as one of the routes you defined in the router setup
@@ -48,8 +44,7 @@ func TestGetMethod(t *testing.T) {
 	// Setup your router, just like you did in your main function, and
 	// register your routes
 	r := gin.Default()
-	r.GET("/", GetMethod)
-
+	r.GET("/", SampleGet)
 	// Create the mock request you'd like to test. Make sure the second argument
 	// here is the same as one of the routes you defined in the router setup
 	// block!
